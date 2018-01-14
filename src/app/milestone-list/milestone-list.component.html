@@ -3,9 +3,7 @@
     <mat-list-item *ngFor="let issue of issueList">
       <!--<img [src]="issue.creator" alt="avatar" width="50">-->
       <!--{{issue}}-->
-      <mat-list-item *ngFor="let i of issue">
-        {{i.id}} {{i.title}}
-      </mat-list-item>
+      {{issue.id}} {{issue.title}}
     </mat-list-item>
   </mat-list>
 </div>

@@ -16,7 +16,7 @@ export class AppComponent implements OnDestroy {
   repoName = '';
   errorMessage = null;
   private getMilestoneSub: Subscription;
-  ghIssues: GithubIssues[] = [];
+  ghIssues: GithubIssues;
   //
   ghIds: GithubId[] = [];
   private getGitSub: Subscription;
@@ -28,6 +28,7 @@ export class AppComponent implements OnDestroy {
     this.errorMessage = null;
     this.getGitSub = this.ids.GetGitIdInfo(toadd).subscribe(info => {
       this.ghIds.push(info);
+      console.log(info);
     },
     error => {
       console.log('error');
@@ -39,8 +40,15 @@ export class AppComponent implements OnDestroy {
   getMilestone(username: string, reponame: string) {
     this.errorMessage = null;
     this.getMilestoneSub = this.issues.getIssues(username, reponame).subscribe(milestone => {
-      console.log(milestone[0]);
-      this.ghIssues.push(milestone);
+      const msArr = milestone[0];
+      // msArr.forEach( function(ms) {
+      //   console.log(ms);
+      // })
+      // for (const ms in milestone) {
+      //   this.ghIssues.push(ms);
+      // }
+      // this.ghIssues.push(milestone);
+      this.ghIssues = milestone;
     },
       error => {
       console.log('milestone error');
