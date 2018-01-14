@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GithubIssues } from '../modules/github-milestone';
+import { GithubMilestone } from '../modules/github-milestone';
+import { GithubIssue } from '../modules/github-issue';
 
 @Component({
   selector: 'app-milestone-list',
@@ -8,7 +9,8 @@ import { GithubIssues } from '../modules/github-milestone';
 })
 export class IssuesListComponent implements OnInit {
 
-  @Input() issueList: GithubIssues[];
+  @Input() milestoneList: GithubMilestone[];
+  // @Input() issueList: GithubIssue[];
   constructor() { }
 
   ngOnInit() {

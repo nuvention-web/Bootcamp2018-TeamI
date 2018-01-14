@@ -1,0 +1,9 @@
+<div>
+  <mat-list *ngFor="let issue of issueList">
+      <!--<img [src]="issue.creator" alt="avatar" width="50">-->
+      <mat-list-item *ngFor="let is of issue">
+        {{is.title}} {{is.id}}
+      </mat-list-item>
+  </mat-list>
+</div>
+

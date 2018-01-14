@@ -10,6 +10,7 @@ import { GitIdInfoService } from './services/git-id-info.service';
 import { GitIssuesService } from './services/git-miletstone.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IssuesListComponent } from './milestone-list/milestone-list.component';
+import { IssueListComponent } from './issue-list/issue-list.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { IssuesListComponent } from './milestone-list/milestone-list.component';
     AppComponent,
     IdListComponent,
     IssuesListComponent,
+    IssueListComponent,
   ],
   imports: [
     BrowserModule,

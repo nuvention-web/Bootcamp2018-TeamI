@@ -1,4 +1,4 @@
-export interface GithubIssues {
+export interface GithubMilestone {
   // login: string;
   state?: string;     // default open
   sort?: string;      // default due_on
@@ -11,4 +11,6 @@ export interface GithubIssues {
   closed_issues?: string;
   due_on?: string;
   closed_at?: string;
+  number?: number;
+  issues?: any;
 }

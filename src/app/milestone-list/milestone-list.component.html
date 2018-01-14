@@ -1,9 +1,10 @@
 <div>
   <mat-list>
-    <mat-list-item *ngFor="let issue of issueList">
+    <mat-list-item *ngFor="let milestone of milestoneList">
       <!--<img [src]="issue.creator" alt="avatar" width="50">-->
       <!--{{issue}}-->
-      {{issue.id}} {{issue.title}}
+      {{milestone.title}} {{milestone.id}}
+      <app-issue-list></app-issue-list>
     </mat-list-item>
   </mat-list>
 </div>
