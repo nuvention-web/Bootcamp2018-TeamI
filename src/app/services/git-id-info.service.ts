@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GithubId } from './github-id';
+import { GithubId } from '../modules/github-id';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -14,10 +14,5 @@ export class GitIdInfoService {
     const userAPI = githubAPI + 'users/';
     console.log(userAPI + login);
     return this.http.get<GithubId>(userAPI + login);
-    // return({
-    //   name: login,
-    //   bio: login + ' biography information',
-    //   avatar_url: '../assets/images/User_Avatar.png'
-    // });
   }
 }

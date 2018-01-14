@@ -6,14 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { IdListComponent } from './id-list/id-list.component';
-import { GitIdInfoService } from './git-id-info.service';
+import { GitIdInfoService } from './services/git-id-info.service';
+import { GitIssuesService } from './services/git-miletstone.service';
 import { HttpClientModule } from '@angular/common/http';
+import { IssuesListComponent } from './milestone-list/milestone-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IdListComponent,
+    IssuesListComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,9 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [GitIdInfoService],
+  providers: [GitIdInfoService, GitIssuesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

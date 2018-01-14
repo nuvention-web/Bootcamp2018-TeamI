@@ -1,6 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
-import { GithubId } from './github-id';
-import { GitIdInfoService } from './git-id-info.service';
+import { GithubId } from './modules/github-id';
+import { GithubIssues } from './modules/github-milestone';
+import { GitIssuesService } from './services/git-miletstone.service';
+import { GitIdInfoService } from './services/git-id-info.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -11,11 +13,16 @@ import { Subscription } from 'rxjs/Subscription';
 export class AppComponent implements OnDestroy {
   title = 'My Favorite Github Users and Orgs';
   ghId = '';
-  ghIds: GithubId[] = [];
+  repoName = '';
   errorMessage = null;
+  private getMilestoneSub: Subscription;
+  ghIssues: GithubIssues[] = [];
+  //
+  ghIds: GithubId[] = [];
   private getGitSub: Subscription;
 
-  constructor(public ids: GitIdInfoService) {}
+
+  constructor(public ids: GitIdInfoService, public issues: GitIssuesService) {}
 
   addGhId(toadd: string) {
     this.errorMessage = null;
@@ -29,7 +36,22 @@ export class AppComponent implements OnDestroy {
     this.ghId = '';
   }
 
+  getMilestone(username: string, reponame: string) {
+    this.errorMessage = null;
+    this.getMilestoneSub = this.issues.getIssues(username, reponame).subscribe(milestone => {
+      console.log(milestone[0]);
+      this.ghIssues.push(milestone);
+    },
+      error => {
+      console.log('milestone error');
+      this.errorMessage = error.message;
+    });
+    this.repoName = '';
+    this.ghId = '';
+  }
+
   ngOnDestroy() {
     this.getGitSub.unsubscribe();
+    this.getMilestoneSub.unsubscribe();
   }
 }

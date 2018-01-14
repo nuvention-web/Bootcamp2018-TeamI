@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Injectable} from '@angular/core';
-import { GithubId } from '../github-id';
+import { GithubId } from '../modules/github-id';
 
 @Component({
   selector: 'app-id-list',

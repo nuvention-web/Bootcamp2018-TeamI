@@ -8,15 +8,18 @@
   <div>
     <mat-form-field>
       <!--<p>Click here for input:</p>-->
-      <input matInput placeholder="Enter a Github username or org" [(ngModel)]="ghId" value="myidsan">
+      <input matInput placeholder="Enter owner of the repo" [(ngModel)]="ghId" value="myidsan">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter a repo name" [(ngModel)]="repoName" value="testRepo">
     </mat-form-field>
     <p>{{ghId}}</p>
+    <p>{{repoName}}</p>
     <app-id-list [idList]="ghIds"></app-id-list>
+    <app-milestone-list [issueList]="ghIssues"></app-milestone-list>
     <button mat-raised-button (click)="addGhId(ghId)">Add to List</button>
+    <button mat-raised-button (click)="getMilestone(ghId, repoName)">Get Milestone</button>
     </div>
-    <!--<ul>-->
-      <!--<li *ngFor="let id of ghIds">{{id}}</li>-->
-    <!--</ul>-->
   </div>
   <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
 </section>
