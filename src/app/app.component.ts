@@ -5,6 +5,7 @@ import { GithubMilestone } from './modules/github-milestone';
 import { GitIssuesService } from './services/git-miletstone.service';
 import { GitIdInfoService } from './services/git-id-info.service';
 import { Subscription } from 'rxjs/Subscription';
+import { log } from 'util';
 
 @Component({
   selector: 'app-root',
@@ -50,13 +51,14 @@ export class AppComponent implements OnDestroy {
       // }
       // this.ghIssues.push(milestone);
       this.ghMilestone = milestone;
-      console.log(this.ghMilestone);
+      
       // TODO:
-      // current iterating through all issues for all milestones
+      // currently iterating through all issues for all milestones
       // needs filtering later on
       for (const issue in milestone) {
         this.getIssues(username, reponame, milestone[issue].number);
       }
+      
     },
       error => {
       console.log('milestone error');
@@ -70,7 +72,7 @@ export class AppComponent implements OnDestroy {
     this.errorMessage = null;
     this.getIssuesSub = this.issues.getIssues(username, reponame, milestoneNum).subscribe(issue => {
       this.ghIssues.push(issue);
-      console.log(this.ghIssues);
+      // console.log(this.ghIssues);
     },
       error => {
       console.log('issue error');
