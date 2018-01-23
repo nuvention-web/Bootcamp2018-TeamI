@@ -13,14 +13,14 @@ export class GitIssuesService {
 
   getMilestones(username: string, reponame: string): Observable<GithubMilestone> {
     const milestoneAPI = githubAPI + 'repos/';
-    console.log(milestoneAPI + username + '/' + reponame + '/' + 'milestones');
-    console.log(this.http.get<GithubMilestone>(milestoneAPI + username + '/' + reponame + '/' + 'milestones'));
+    // console.log(milestoneAPI + username + '/' + reponame + '/' + 'milestones');
+    // console.log(this.http.get<GithubMilestone>(milestoneAPI + username + '/' + reponame + '/' + 'milestones'));
     return this.http.get<GithubMilestone>(milestoneAPI + username + '/' + reponame + '/' + 'milestones');
   }
 
   getIssues(username: string, reponame: string, milestoneNum: number): Observable<GithubIssue> {
     const issuesAPI = githubAPI + 'repos/';
-    console.log(issuesAPI + username + '/' + reponame + '/' + 'issues?milestone=' + milestoneNum);
+    // console.log(issuesAPI + username + '/' + reponame + '/' + 'issues?milestone=' + milestoneNum);
     return this.http.get<GithubIssue>(issuesAPI + username + '/' + reponame + '/' + 'issues?milestone=' + milestoneNum);
   }
 }
