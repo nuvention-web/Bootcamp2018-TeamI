@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GithubId } from '../modules/github-id';
+import { GithubId } from '../dashboard/modules/github-id';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 

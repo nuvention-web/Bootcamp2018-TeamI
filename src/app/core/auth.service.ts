@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operatior/switchMap';
+import 'rxjs/add/operator/switchMap';
 
 interface User {
   uid: string;
@@ -37,7 +37,8 @@ export class AuthService {
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        this.updateUserData(credential.user);
+        this.router.navigate(['/dashboard']);
+        return this.updateUserData(credential.user);
       });
   }
 
@@ -58,5 +59,17 @@ export class AuthService {
   githubLogin() {
     const provider = new firebase.auth.GithubAuthProvider();
     return this.oAuthLogin(provider);
+  }
+
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider);
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut()
+      .then(() => {
+        this.router.navigate(['/login']);
+    });
   }
 }

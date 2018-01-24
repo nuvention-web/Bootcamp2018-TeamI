@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { GithubMilestone } from '../modules/github-milestone';
-import { GithubIssue } from '../modules/github-issue';
+import { GithubMilestone } from '../dashboard/modules/github-milestone';
+import { GithubIssue } from '../dashboard/modules/github-issue';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 

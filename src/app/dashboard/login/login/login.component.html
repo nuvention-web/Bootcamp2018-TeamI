@@ -1,0 +1,9 @@
+<div class="form-container">
+  <img src="../../assets/images/lock.svg" id="lock">
+
+  <span class="error" *ngIf="error">{{ error }}</span>
+
+  <!--<button (click)="loginGoogle()" id="google">Login With Google</button>-->
+  <!--<input type="text" id="pwInput" [(ngModel)]="password" placeholder="enter password">-->
+  <button id="loginBtn" (click)="googleLogin()">GithubLogin</button>
+</div>
